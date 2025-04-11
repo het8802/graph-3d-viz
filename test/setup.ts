@@ -62,6 +62,11 @@ vi.mock('three', () => ({
     y: 0,
     z: 0,
   })),
+  Vector2: vi.fn().mockImplementation(() => ({
+    set: vi.fn(),
+    x: 0,
+    y: 0,
+  })),
   Color: vi.fn(),
   CanvasTexture: vi.fn(),
   Sprite: vi.fn().mockImplementation(() => ({
