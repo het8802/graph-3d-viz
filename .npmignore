@@ -1,0 +1,28 @@
+# Development files
+.github/
+.vscode/
+.git/
+.gitignore
+.editorconfig
+
+# Build and test files
+dist/
+coverage/
+*.test.ts
+*.spec.ts
+vitest.config.ts
+
+# Configuration files
+*.config.*
+tsconfig.json
+vite.config.ts
+
+# Documentation
+README.md
+LICENSE
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+node_modules/ 

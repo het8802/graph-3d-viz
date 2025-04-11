@@ -1,0 +1,60 @@
+{
+  "name": "graph-3d-viz",
+  "version": "0.1.0",
+  "description": "A powerful 3D graph visualization library for data structures and algorithms",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test --ext .ts",
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "graph",
+    "visualization",
+    "3d",
+    "three.js",
+    "d3",
+    "data-structures",
+    "algorithms"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/graph-3d-viz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/graph-3d-viz/issues"
+  },
+  "homepage": "https://github.com/yourusername/graph-3d-viz#readme",
+  "dependencies": {
+    "three": "^0.160.0",
+    "d3": "^7.8.5"
+  },
+  "devDependencies": {
+    "@types/three": "^0.160.0",
+    "@types/d3": "^7.4.3",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitest/coverage-v8": "^1.2.2",
+    "eslint": "^8.56.0",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vite-plugin-dts": "^3.7.2",
+    "vitest": "^1.2.2"
+  },
+  "peerDependencies": {
+    "three": "^0.160.0",
+    "d3": "^7.8.5"
+  }
+}
