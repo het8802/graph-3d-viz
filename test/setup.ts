@@ -46,6 +46,12 @@ vi.mock('three', () => ({
     z: 0,
   })),
   Color: vi.fn(),
+  CanvasTexture: vi.fn(),
+  Sprite: vi.fn().mockImplementation(() => ({
+    position: { x: 0, y: 0, z: 0 },
+    add: vi.fn(),
+  })),
+  SpriteMaterial: vi.fn(),
 }));
 
 // Mock Three.js OrbitControls
