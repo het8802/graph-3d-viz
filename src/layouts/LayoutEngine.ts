@@ -16,10 +16,6 @@ interface D3Edge extends d3.SimulationLinkDatum<D3Node> {
   weight?: number;
 }
 
-interface D3HierarchyNode extends d3.HierarchyPointNode<D3Node> {
-  data: D3Node;
-}
-
 export class LayoutEngine {
   private nodes: Node[];
   private edges: Edge[];
@@ -31,7 +27,7 @@ export class LayoutEngine {
     this.type = type;
   }
 
-  private createForceSimulation() {
+  private createForceSimulation(): d3.Simulation<D3Node, D3Edge> {
     const d3Nodes: D3Node[] = this.nodes.map(node => ({ id: node.id }));
     const d3Edges: D3Edge[] = this.edges.map(edge => ({
       source: edge.from,
@@ -54,7 +50,7 @@ export class LayoutEngine {
     return simulation;
   }
 
-  private createTreeLayout() {
+  private createTreeLayout(): d3.HierarchyPointNode<D3Node> {
     const rootNode: D3Node = { id: this.nodes[0].id };
     const hierarchy = d3.hierarchy(rootNode, (d: D3Node) => {
       return this.edges
@@ -122,7 +118,6 @@ export class LayoutEngine {
 
   private findRoot(): Node | undefined {
     if (this.type === 'tree' || this.type === 'DAG') {
-      const nodeIds = new Set(this.nodes.map(n => n.id));
       const hasIncomingEdge = new Set(this.edges.map(e => e.to));
       
       for (const node of this.nodes) {

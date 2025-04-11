@@ -17,7 +17,7 @@ export class Graph3D {
     );
   }
 
-  public render() {
+  public render(): void {
     // Calculate node positions
     const positionedNodes = this.layoutEngine.calculateLayout();
 
@@ -32,7 +32,7 @@ export class Graph3D {
     this.renderer.animate();
   }
 
-  public updateData(data: GraphData) {
+  public updateData(data: GraphData): void {
     this.config.data = data;
     this.layoutEngine = new LayoutEngine(
       data.nodes,
@@ -42,7 +42,7 @@ export class Graph3D {
     this.render();
   }
 
-  public dispose() {
+  public dispose(): void {
     this.renderer.dispose();
   }
 }

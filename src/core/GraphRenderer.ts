@@ -44,7 +44,7 @@ export class GraphRenderer {
     window.addEventListener('resize', this.handleResize.bind(this));
   }
 
-  private handleResize() {
+  private handleResize(): void {
     const width = this.config.container.clientWidth;
     const height = this.config.container.clientHeight;
 
@@ -108,7 +108,7 @@ export class GraphRenderer {
     return new THREE.Line(geometry, material);
   }
 
-  public render(data: { nodes: Node[]; edges: Edge[] }) {
+  public render(data: { nodes: Node[]; edges: Edge[] }): void {
     // Clear existing meshes and lines
     for (const mesh of this.nodeMeshes.values()) {
       this.scene.remove(mesh);
@@ -149,13 +149,13 @@ export class GraphRenderer {
     this.controls.update();
   }
 
-  public animate() {
+  public animate(): void {
     requestAnimationFrame(this.animate.bind(this));
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
   }
 
-  public dispose() {
+  public dispose(): void {
     window.removeEventListener('resize', this.handleResize.bind(this));
     this.renderer.dispose();
     this.controls.dispose();
