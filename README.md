@@ -1,6 +1,6 @@
 # Graph 3D Visualization
 
-A powerful 3D graph visualization library for data structures and algorithms, built with Three.js and D3.js.
+A powerful 3D graph visualization library for data structures and algorithms, built with Three.js and D3.js, created by **[Het Tikawala](https://github.com/het8802)**.
 
 ## Features
 
