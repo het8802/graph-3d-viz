@@ -37,15 +37,21 @@ export class LayoutEngine {
       weight: edge.weight,
     }));
 
+    // Calculate optimal edge length based on number of nodes
+    const baseLength = 50; // Base length for small graphs
+    const lengthScale = Math.max(1, Math.log10(this.nodes.length)); // Scale factor based on node count
+    const optimalLength = baseLength / lengthScale;
+
     const simulation = d3.forceSimulation(d3Nodes)
       .force('charge', d3.forceManyBody().strength(-300))
       .force('center', d3.forceCenter())
       .force('link', d3.forceLink(d3Edges)
         .id((d: d3.SimulationNodeDatum) => (d as D3Node).id)
-        .distance(100)
+        .distance(optimalLength)
       );
 
-    simulation.force('collision', d3.forceCollide().radius(50));
+    // Adjust collision radius based on edge length
+    simulation.force('collision', d3.forceCollide().radius(optimalLength * 0.5));
 
     return simulation;
   }

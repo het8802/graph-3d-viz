@@ -1,9 +1,25 @@
 # Development files
+example/
+test/
+src/
+.git/
 .github/
 .vscode/
-.git/
-.gitignore
-.editorconfig
+
+# Build and dependency files
+vite.config.ts
+tsconfig.json
+package-lock.json
+
+# Documentation
+*.md
+!README.md
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+.DS_Store
 
 # Build and test files
 dist/
@@ -14,15 +30,9 @@ vitest.config.ts
 
 # Configuration files
 *.config.*
-tsconfig.json
-vite.config.ts
-
-# Documentation
-README.md
-LICENSE
+.gitignore
+.editorconfig
 
 # Logs and temporary files
 *.log
-*.tmp
-.DS_Store
-node_modules/ 
+*.tmp 

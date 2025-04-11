@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph 3D Visualization</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .graph-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #graph-container {
+            width: 100%;
+            height: 600px;
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        .tutorial-section {
+            margin-bottom: 2rem;
+        }
+
+        .tutorial-section h2 {
+            color: #1a73e8;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 0.5rem;
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #1a73e8;
+            margin-top: 0;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Graph 3D Visualization</h1>
+        <p>A powerful 3D graph visualization library for data structures and algorithms</p>
+    </header>
+
+    <div class="container">
+        <section class="graph-section">
+            <h2>Interactive Demo</h2>
+            <div id="graph-container"></div>
+        </section>
+
+        <section class="tutorial-section">
+            <h2>Quick Start</h2>
+            <p>Install the package using npm:</p>
+            <div class="code-block">
+                npm install graph-3d-viz
+            </div>
+
+            <p>Basic usage example:</p>
+            <div class="code-block">
+                import { Graph3D } from 'graph-3d-viz';
+
+                const data = {
+                    type: 'directed',
+                    nodes: [
+                        { id: '1', label: 'Node 1' },
+                        { id: '2', label: 'Node 2' },
+                    ],
+                    edges: [
+                        { from: '1', to: '2' },
+                    ],
+                };
+
+                const graph = new Graph3D({
+                    container: document.getElementById('graph-container'),
+                    data,
+                    theme: 'light',
+                    nodeSize: 0.3,
+                    edgeWidth: 2,
+                });
+
+                graph.render();
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>3D Visualization</h3>
+                <p>Render your graphs in beautiful 3D with smooth animations and interactions.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Multiple Layouts</h3>
+                <p>Support for various graph types including directed, undirected, trees, and DAGs.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Customizable</h3>
+                <p>Easily customize node sizes, colors, labels, and edge styles to match your needs.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Interactive</h3>
+                <p>Rotate, zoom, and pan the graph with intuitive controls. Hover effects for nodes and edges.</p>
+            </div>
+        </section>
+
+        <section class="tutorial-section">
+            <h2>Configuration Options</h2>
+            <div class="code-block">
+                interface GraphConfig {
+                    container: HTMLElement;
+                    data: GraphData;
+                    theme?: 'light' | 'dark';
+                    nodeSize?: number;
+                    edgeWidth?: number;
+                    onNodeClick?: (node: Node) => void;
+                    onEdgeClick?: (edge: Edge) => void;
+                    onNodeHover?: (node: Node | null) => void;
+                    onEdgeHover?: (edge: Edge | null) => void;
+                }
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Graph 3D Visualization &copy; 2024</p>
+    </footer>
+
+    <script type="module">
+        import { Graph3D } from 'graph-3d-viz';
+
+        // Sample graph data
+        const data = {
+            type: 'directed',
+            nodes: [
+                { id: '1', label: '1' },
+                { id: '2', label: '2' },
+                { id: '3', label: '3' },
+                { id: '4', label: '4' },
+            ],
+            edges: [
+                { from: '1', to: '2' },
+                { from: '2', to: '3' },
+                { from: '3', to: '4' },
+                { from: '4', to: '1' },
+            ],
+        };
+
+        // Initialize the graph
+        const graph = new Graph3D({
+            container: document.getElementById('graph-container'),
+            data,
+            theme: 'light',
+            nodeSize: 3,
+            edgeWidth: 15,
+        });
+
+        // Render the graph
+        graph.render();
+    </script>
+</body>
+</html> 
