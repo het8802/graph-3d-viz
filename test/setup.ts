@@ -5,9 +5,14 @@ vi.mock('three', () => ({
   Scene: vi.fn().mockImplementation(() => ({
     background: null,
     add: vi.fn(),
+    remove: vi.fn(),
   })),
   PerspectiveCamera: vi.fn().mockImplementation(() => ({
-    position: { z: 0 },
+    position: { 
+      x: 0, y: 0, z: 0,
+      set: vi.fn(),
+      copy: vi.fn(),
+    },
     aspect: 0,
     fov: 0,
     updateProjectionMatrix: vi.fn(),
@@ -17,6 +22,8 @@ vi.mock('three', () => ({
     domElement: document.createElement('canvas'),
     render: vi.fn(),
     dispose: vi.fn(),
+    setClearColor: vi.fn(),
+    setPixelRatio: vi.fn(),
   })),
   AmbientLight: vi.fn(),
   DirectionalLight: vi.fn(),
@@ -31,7 +38,13 @@ vi.mock('three', () => ({
     getCenter: vi.fn().mockReturnValue({ x: 0, y: 0, z: 0 }),
     getSize: vi.fn().mockReturnValue({ x: 1, y: 1, z: 1 }),
   })),
-  Vector3: vi.fn(),
+  Vector3: vi.fn().mockImplementation(() => ({
+    set: vi.fn(),
+    copy: vi.fn(),
+    x: 0,
+    y: 0,
+    z: 0,
+  })),
   Color: vi.fn(),
 }));
 
@@ -42,6 +55,10 @@ vi.mock('three/examples/jsm/controls/OrbitControls', () => ({
     dampingFactor: 0.05,
     update: vi.fn(),
     dispose: vi.fn(),
+    target: {
+      set: vi.fn(),
+      copy: vi.fn(),
+    },
   })),
 }));
 
