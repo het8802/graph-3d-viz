@@ -69,6 +69,10 @@ vi.mock('three', () => ({
     add: vi.fn(),
   })),
   SpriteMaterial: vi.fn(),
+  Raycaster: vi.fn().mockImplementation(() => ({
+    setFromCamera: vi.fn(),
+    intersectObjects: vi.fn().mockReturnValue([]),
+  })),
 }));
 
 // Mock Three.js OrbitControls
