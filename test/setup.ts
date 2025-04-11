@@ -26,7 +26,11 @@ vi.mock('three', () => ({
     setPixelRatio: vi.fn(),
   })),
   AmbientLight: vi.fn(),
-  DirectionalLight: vi.fn(),
+  DirectionalLight: vi.fn().mockImplementation(() => ({
+    position: {
+      set: vi.fn(),
+    },
+  })),
   SphereGeometry: vi.fn(),
   MeshPhongMaterial: vi.fn(),
   Mesh: vi.fn().mockImplementation(() => ({
@@ -40,7 +44,10 @@ vi.mock('three', () => ({
     add: vi.fn(),
     remove: vi.fn(),
   })),
-  BufferGeometry: vi.fn(),
+  BufferGeometry: vi.fn().mockImplementation(() => ({
+    setFromPoints: vi.fn(),
+    dispose: vi.fn(),
+  })),
   LineBasicMaterial: vi.fn(),
   Line: vi.fn(),
   Box3: vi.fn().mockImplementation(() => ({
